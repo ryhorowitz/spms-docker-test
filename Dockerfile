@@ -25,5 +25,5 @@ RUN composer create-project --prefer-dist cakephp/app:^5.0 .
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html
 
-# Configure Apache
+# Configure Apache to use the webroot folder
 RUN sed -i 's!/var/www/html!/var/www/html/webroot!g' /etc/apache2/sites-available/000-default.conf
