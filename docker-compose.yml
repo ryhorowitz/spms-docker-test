@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=mysql://cakephp:secret@db/cakephp_db
+
+  db:
+    image: mariadb:10.5
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: cakephp_db
+      MYSQL_USER: cakephp
+      MYSQL_PASSWORD: secret
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
