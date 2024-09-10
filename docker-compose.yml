@@ -6,7 +6,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./spms-app:/var/www/html
+      - ./spms_app:/var/www/html
     depends_on:
       - db
     environment:

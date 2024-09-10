@@ -19,6 +19,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Set working directory
 WORKDIR /var/www/html
 
+# Need apache configuration instructions? Set "Servername" directive globally, change DocumentRoot to working directory, allow changes in .htaccess
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
 # Install CakePHP
 RUN composer create-project --prefer-dist cakephp/app:^5.0 .
 
