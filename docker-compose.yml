@@ -1,6 +1,6 @@
 services:
   web:
-    container_name: spms-container
+    container_name: web-spms-container
     build: .
     volumes:
       - ./spms_app:/var/www/html
@@ -8,6 +8,7 @@ services:
       - "8081:8080"
 
   mariadb:
+    container_name: db-spms-container
     image: mariadb:10.5
     restart: always
     environment:
