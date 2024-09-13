@@ -17,7 +17,7 @@ RUN a2enmod rewrite
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Set working directory
-WORKDIR /var/www/html
+WORKDIR /var/www/html/webroot
 
 # Need apache configuration instructions? Set "Servername" directive globally, change DocumentRoot to working directory, allow changes in .htaccess
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
