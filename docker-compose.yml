@@ -11,10 +11,10 @@ services:
     image: mariadb:10.5
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: spms
-      MYSQL_USER: spms
-      MYSQL_PASSWORD: spms
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: spms
+      MARIADB_USER: spms
+      MARIADB_PASSWORD: spms
     volumes:
       - ./data:/var/lib/mysql
     ports:
