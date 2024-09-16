@@ -1,6 +1,6 @@
 services:
   web:
-    container_name: web-spms-container
+    container_name: web-spms
     build: .
     volumes:
       - ./spms_app:/var/www/html
@@ -8,14 +8,16 @@ services:
       - "8081:8080"
 
   mariadb:
-    container_name: db-spms-container
-    image: mariadb:10.5
+    container_name: db-spms
+    image: mariadb:latest
     restart: always
+    env_file:
+      - .env
     environment:
-      MARIADB_ROOT_PASSWORD: root
+      MARIADB_ROOT_PASSWORD: ${PASS}
       MARIADB_DATABASE: spms
       MARIADB_USER: spms
-      MARIADB_PASSWORD: spms
+      # MARIADB_PASSWORD: spms
     volumes:
       - ./data:/var/lib/mysql
     ports:
